@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Performance Predictor</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            margin-top: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+        }
+
+        input, select {
+            width: 95%;
+            padding: 10px;
+            margin: 8px;
+            border-radius: 8px;
+            border: 1px solid gray;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #dcfce7;
+            color: green;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>🎓 Student Performance Predictor</h1>
+
+    <form method="POST">
+        <input name="age" placeholder="Age" required>
+        <input name="studytime" placeholder="Study Time" required>
+        <input name="failures" placeholder="Failures" required>
+        <input name="absences" placeholder="Absences" required>
+        <input name="G1" placeholder="G1 Marks" required>
+        <input name="G2" placeholder="G2 Marks" required>
+
+        <select name="sex">
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+        </select>
+
+        <select name="internet">
+            <option value="yes">Internet Yes</option>
+            <option value="no">Internet No</option>
+        </select>
+
+        <!-- hidden defaults -->
+        <input type="hidden" name="school" value="GP">
+        <input type="hidden" name="address" value="U">
+        <input type="hidden" name="famsize" value="GT3">
+        <input type="hidden" name="Pstatus" value="A">
+        <input type="hidden" name="Medu" value="4">
+        <input type="hidden" name="Fedu" value="4">
+        <input type="hidden" name="Mjob" value="at_home">
+        <input type="hidden" name="Fjob" value="teacher">
+        <input type="hidden" name="reason" value="course">
+        <input type="hidden" name="guardian" value="mother">
+        <input type="hidden" name="traveltime" value="2">
+        <input type="hidden" name="schoolsup" value="yes">
+        <input type="hidden" name="famsup" value="no">
+        <input type="hidden" name="paid" value="no">
+        <input type="hidden" name="activities" value="yes">
+        <input type="hidden" name="nursery" value="yes">
+        <input type="hidden" name="higher" value="yes">
+        <input type="hidden" name="romantic" value="no">
+        <input type="hidden" name="famrel" value="4">
+        <input type="hidden" name="freetime" value="3">
+        <input type="hidden" name="goout" value="3">
+        <input type="hidden" name="Dalc" value="1">
+        <input type="hidden" name="Walc" value="1">
+        <input type="hidden" name="health" value="4">
+        <input type="hidden" name="course" value="math">
+
+        <button type="submit">Predict Final Grade</button>
+    </form>
+
+    {% if prediction is not none %}
+        <div class="result">
+            Predicted Final Grade: {{ prediction }}
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
